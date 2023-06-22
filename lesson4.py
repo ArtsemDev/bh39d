@@ -426,3 +426,21 @@ from collections import *
 # 22 24 26 28 30
 # 32 34 36 38 40
 # 42 44
+
+# text = 'hello world'
+#
+# symbols = [letter.upper() for letter in text]
+#
+# for letter in text:
+#     symbols.append(letter.upper())
+#
+# print(symbols)
+
+# from random import randint
+#
+#
+# random_numbers = [randint(1, 10) for _ in range(10)]
+#
+# for _ in range(10):
+#     random_numbers.append(randint(1, 10))
+# print(random_numbers)
