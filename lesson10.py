@@ -151,7 +151,7 @@
 
 
 from pydantic import BaseModel, EmailStr, field_validator, Field, model_validator
-
+from pydantic_core import SchemaSerializer
 
 db = ['vasya@gmail.com', 'petya@gmail.com']
 
