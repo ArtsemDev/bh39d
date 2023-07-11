@@ -150,8 +150,7 @@
 # cat = Category(**data)
 
 
-from pydantic import BaseModel, EmailStr, field_validator, Field, model_validator
-from pydantic_core import SchemaSerializer
+from utils.pydantic import BaseModel, EmailStr, field_validator, Field, model_validator
 
 db = ['vasya@gmail.com', 'petya@gmail.com']
 
