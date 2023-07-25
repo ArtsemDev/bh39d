@@ -29,27 +29,19 @@
 #         ''')
 #         conn.commit()
 
-
+from asyncio import run
 from sqlalchemy import (
     Column,
     INT,
     VARCHAR,
-    TIMESTAMP,
     TEXT,
     DECIMAL,
     ForeignKey,
     create_engine,
     select,
-    update,
-    delete,
-    or_,
-    and_,
-    any_,
-    all_,
 )
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import (
-    declarative_base,
     DeclarativeBase,
     declared_attr,
     relationship,
@@ -57,7 +49,7 @@ from sqlalchemy.orm import (
     selectinload
 )
 from sqlalchemy.sql.functions import count
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+
 
 # Устаревший вариант создания базовой модели в алхимии до 2 версии
 # Base = declarative_base()
@@ -143,15 +135,15 @@ class Product(Base):
 #     session.commit()
 
 # with Category.session() as session:
-    # objs = session.execute()  # Удобен для UNION/JOIN запросов [(Category, Product), (Category, Product)]
-    # objs = session.scalars()  # удобен для SELECT из 1 таблицы [Category, Category]
-    # obj = session.scalar()  # удобен для SELECT из 1 таблицы 1 записи Category
-    # objs = session.scalars(
-    #     select(Category)
-    #     .filter(Category.id.in_([2]))
-    #     .order_by(Category.name.desc())
-    # )
-    # print(objs.all())
+# objs = session.execute()  # Удобен для UNION/JOIN запросов [(Category, Product), (Category, Product)]
+# objs = session.scalars()  # удобен для SELECT из 1 таблицы [Category, Category]
+# obj = session.scalar()  # удобен для SELECT из 1 таблицы 1 записи Category
+# objs = session.scalars(
+#     select(Category)
+#     .filter(Category.id.in_([2]))
+#     .order_by(Category.name.desc())
+# )
+# print(objs.all())
 
 
 # with Product.session() as session:
@@ -218,5 +210,5 @@ async def main():
         for c in cat:
             print(c.products)
 
-from asyncio import run
+
 run(main())

@@ -134,7 +134,6 @@
 # data = {'name': 'Alex', 'age': 45}
 # text = 'Hello {name} your age {age}'.format_map(data)
 # print(text)
-from collections import *
 
 
 # text = 'Hello World'
